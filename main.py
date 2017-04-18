@@ -52,13 +52,20 @@ def kill_process():
             print('\nSKIP: The process "bsp.exe" not found.\n')
 
 
+# Install Log.
+# ToDo: Call this function. Currently not working.
+def log():
+    logName = packageName.replace(".msi", "_Install.log")
+    return logName
+
+
 # Install package
-logName = packageName.replace(".msi", "_Install.log")
 # askForLog = input('Generate a install log? (Yes/No) \n')
+# ToDo: Replace asking for logs function with optional parameter -l
 askForLog = "yes"
 if askForLog.lower() in ('y', 'yes'):
     try:
-        os.system("msiexec /i {} /qn /l*v {}".format(packageName, logName))
+        os.system("msiexec /i {} /qn /l*v {}".format(packageName, log()))
     except WindowsError as e:
         print(e)
 elif askForLog.lower() in ('n', 'no'):
