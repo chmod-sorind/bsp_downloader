@@ -89,7 +89,10 @@ def dedicate():
 
 
 def run_script():
+    kill_bspProcess()
+
     install(packageName)
+    
     if BSParser.args.dedicate is True:
         dedicate()
 
