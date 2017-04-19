@@ -96,7 +96,7 @@ def run_script():
     if BSParser.args.c is True:
         clean()
 
-packageName = BSParser.args.url
+packageName = getPackageName(BSParser.args.url)
 urllib.request.urlretrieve(BSParser.args.url, packageName, reporthook=dlProgress)
 run_script()
 print("\nScript done... ")
