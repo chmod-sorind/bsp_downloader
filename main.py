@@ -1,4 +1,4 @@
-#!C:\Python35\python.exe
+#!C:\Python3\python.exe
 
 import BSParser
 import os
@@ -90,11 +90,14 @@ def dedicate():
 
 def run_script():
     install(packageName)
-    if BSParser.args.d is True:
+    if BSParser.args.dedicate is True:
         dedicate()
 
-    if BSParser.args.c is True:
+    if BSParser.args.clean is True:
         clean()
+
+    if BSParser.args.reboot is True:
+        reboot(0)
 
 packageName = getPackageName(BSParser.args.url)
 urllib.request.urlretrieve(BSParser.args.url, packageName, reporthook=dlProgress)
